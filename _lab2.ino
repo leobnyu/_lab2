@@ -4,6 +4,7 @@ int newSwitch = 25;
 
 int randomGuy = 0;
 int ledPinArray[4] = { 32, 31, 30, 29 };
+int extraLed = 2;
 int buttonPin = 33;
 int buttonPin2 = 34;
 int toggle = 35;
@@ -19,6 +20,7 @@ void setup() {
   pinMode(toggle, INPUT);
   pinMode(buttonPin2, INPUT);
   pinMode(buttonPin3, INPUT);
+  pinMode(extraLed, OUTPUT);
 }
 
 void loop() {
