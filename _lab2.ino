@@ -1,5 +1,7 @@
 
 int potValue = 0;
+int newSwitch = 25;
+
 int randomGuy = 0;
 int ledPinArray[4] = { 32, 31, 30, 29 };
 int buttonPin = 33;
@@ -7,7 +9,6 @@ int buttonPin2 = 34;
 int toggle = 35;
 int buttonPin3 = 36;
 int buttonPin4 = 39;
-
 
 void setup() {
   Serial.begin(9600);
@@ -22,6 +23,7 @@ void setup() {
 
 void loop() {
   potValue = analogRead(A13);
+ 
   delay(100);
   if (digitalRead(buttonPin) == HIGH) {
     for (int i = 0; i < 4; i++) {
@@ -36,7 +38,7 @@ void loop() {
     }
     delay(1000);
 
-  } else if (digitalRead(buttonPin2) == HIGH and digitalRead(toggle) == HIGH) {
+  } else if (digitalRead(buttonPin2) == HIGH and digitalRead(toggle) == HIGH and digitalRead(newSwitch) == LOW) {
     for (int i = 0; i < 4; i++) {
       digitalWrite(ledPinArray[i], HIGH);
       delay(potValue);
@@ -44,12 +46,11 @@ void loop() {
       delay(potValue);
     }
 
-  } else if (digitalRead(buttonPin2) == HIGH and digitalRead(toggle) == LOW) {
+  } else if (digitalRead(buttonPin2) == HIGH and digitalRead(toggle) == LOW and digitalRead(newSwitch) == HIGH) {
     for (int i = 3; i > -1; i--) {
       digitalWrite(ledPinArray[i], HIGH);
       delay(potValue);
       digitalWrite(ledPinArray[i], LOW);
-      delay(potValue);
     }
   }
 
